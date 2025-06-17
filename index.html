@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCW 音樂節奏遊戲</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>    <div class="container">
+        <h1>CCW 音樂節奏遊戲</h1>
+        <div class="arduino-section">
+            <button class="btn connect-btn" id="connectBtn" onclick="game.setupArduino()">連接 Arduino</button>
+            <div class="connection-status" id="connectionStatus">未連接</div>
+        </div>
+        <div class="difficulty-buttons">
+            <button class="btn normal" onclick="game.startGame('normal')">普通 (4音符)</button>
+            <button class="btn easy" onclick="game.startGame('easy')">簡單 (8音符)</button>
+            <button class="btn hard" onclick="game.startGame('hard')">困難 (16音符)</button>
+            <button class="btn hell" onclick="game.startGame('hell')">地獄 (32音符)</button>
+        </div>
+        <div class="countdown" id="countdown"></div>
+        <div class="note-display" id="noteDisplay"></div>
+        <div class="stats" id="stats"></div>
+    </div>    <script src="game.js"></script>
+    <script>
+        // 等待頁面完全加載後再初始化遊戲
+        window.addEventListener('DOMContentLoaded', () => {
+            window.game = new RhythmGame();
+            console.log('遊戲已初始化');
+        });
+    </script>
+</body>
+</html>
